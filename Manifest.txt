@@ -1,0 +1,8 @@
+README.rdoc
+LICENSE
+History.rdoc
+Manifest.txt
+Rakefile
+lib/module/mixy.rb
+examples/example.rb
+dspec/from_example.rb

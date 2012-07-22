@@ -1,0 +1,32 @@
+= module-mixy
+
+code :: http://github.com/kachick/module-mixy
+bugs :: https://github.com/kachick/module-mixy/issues
+
+== Description
+
+Not Module#mix
+
+== Features
+
+* Pure Ruby :)
+
+== Usage
+
+
+== Requirements
+
+=== Env
+
+* Ruby - 1.9.3 or later
+
+== Installation
+
+
+== License
+
+The MIT X11 License
+
+Copyright (c) 2012 Kenichi Kamiya
+
+See the file LICENSE for further details.
