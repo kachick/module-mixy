@@ -10,4 +10,5 @@ lib/module/mixy.rb
 
 declare/declare_example.rb
 
-example/basic.rb
+example/README.rb
+example/mix.rb
