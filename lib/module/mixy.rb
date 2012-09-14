@@ -28,7 +28,7 @@ class Module
       
       conflicts = instance_methods & specific_mod.instance_methods
       unless conflicts.empty?
-        raise Mixy::ConflictError, "[#{conflicts.join(', ')}] conflicts"
+        raise ConflictError, "[#{conflicts.join(', ')}] conflicts"
       end
       
       include specific_mod
