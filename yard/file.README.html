@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.2.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>module-mixy</h1>
+
+<p><a href="http://travis-ci.org/kachick/module-mixy"><img src="https://secure.travis-ci.org/kachick/module-mixy.png" alt="Build Status"></a></p>
+
+<h2>Description</h2>
+
+<p>Module.mixy is not Module.mix :)</p>
+
+<h2>Features</h2>
+
+<ul>
+<li>Pure Ruby :)</li>
+</ul>
+
+<h2>Usage</h2>
+
+<h3>Overview</h3>
+
+<pre class="code ruby"><code><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>module/mixy</span><span class='tstring_end'>'</span></span>
+
+<span class='kw'>module</span> <span class='const'>Foo</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>FOO :)</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>module</span> <span class='const'>Bar</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_common'>common</span>
+    <span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>bar :(</span><span class='tstring_end'>'</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>class</span> <span class='const'>FooBar</span>
+  <span class='id identifier rubyid_mixy'>mixy</span> <span class='const'>Foo</span><span class='comma'>,</span> <span class='symbol'>:common</span> <span class='op'>=&gt;</span> <span class='symbol'>:foo_common</span>
+  <span class='id identifier rubyid_mixy'>mixy</span> <span class='const'>Bar</span><span class='comma'>,</span> <span class='symbol'>:common</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar_common</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_foobar'>foobar</span> <span class='op'>=</span> <span class='const'>FooBar</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_foobar'>foobar</span><span class='period'>.</span><span class='id identifier rubyid_methods'>methods</span><span class='period'>.</span><span class='id identifier rubyid_grep'>grep</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>common</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; [:bar_common, :foo_common]
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_foobar'>foobar</span><span class='period'>.</span><span class='id identifier rubyid_foo_common'>foo_common</span>             <span class='comment'>#=&gt; &quot;FOO :)&quot;
+</span><span class='id identifier rubyid_p'>p</span> <span class='id identifier rubyid_foobar'>foobar</span><span class='period'>.</span><span class='id identifier rubyid_bar_common'>bar_common</span>             <span class='comment'>#=&gt; &quot;bar :(&quot;
+</span></code></pre>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Ruby - <a href="http://travis-ci.org/#!/kachick/module-mixy">1.9.2 or later</a></li>
+</ul>
+
+<h2>Install</h2>
+
+<pre class="code bash"><code>$ gem install module-mixy
+</code></pre>
+
+<h2>Link</h2>
+
+<ul>
+<li><a href="https://github.com/kachick/module-mixy">code</a></li>
+<li><a href="http://kachick.github.com/module-mixy/yard/frames.html">API</a></li>
+<li><a href="https://github.com/kachick/module-mixy/issues">issues</a></li>
+<li><a href="http://travis-ci.org/#!/kachick/module-mixy">CI</a></li>
+<li><a href="https://rubygems.org/gems/module-mixy">gem</a></li>
+</ul>
+
+<h2>License</h2>
+
+<p>The MIT X11 License<br>
+Copyright (C) 2012 Kenichi Kamiya<br>
+See the file LICENSE for further details.</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Fri Sep 14 20:25:27 2012 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.2.1 (ruby-1.9.3).
+</div>
+
+  </body>
+</html>
