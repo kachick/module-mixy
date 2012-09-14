@@ -13,26 +13,50 @@ base_mod_1 = Module.new do
   include upper_mod
   
   def func
-    :DUMMY1
+    :f1
+  end
+
+  private
+
+  def private_func
+    :pf1
   end
 end
 
-base_mod_2 = Module.new do    
+base_mod_2 = Module.new do
   def func
-      :DUMMY2
+      :f2
   end
 end
+
+base_mod_3 = Module.new do
+  private
+
+  def private_func
+    :pf3
+  end
+end
+
 
 klass = Class.new
 
 The klass.dup do |kls|
+  ret = nil
   kls.module_eval do
-    mixy base_mod_1
+    ret = mixy base_mod_1
   end
+
+  SAME ret
   
   CATCH Module::Mixy::ConflictError do
     kls.module_eval do
       mixy base_mod_2
+    end
+  end
+
+  CATCH Module::Mixy::ConflictError do
+    kls.module_eval do
+      mixy base_mod_3
     end
   end
 end
@@ -45,28 +69,29 @@ The klass.dup do |kls|
   
   kls.module_eval do
     mixy base_mod_2, :func => :func2
+    mixy base_mod_3, :private_func => :private_func3
   end
   
-  The kls.instance_methods(true).grep(/\Afunc/) do
-    is [:func2, :func]
-  end
-  
+  methods = [:func2, :func] - kls.instance_methods(true).grep(/func\d?\z/)
+  OK methods.empty?
+
+  methods = [:private_func3, :private_func] - \
+  kls.private_instance_methods(true).grep(/func\d?\z/)
+  OK methods.empty?
+
   The kls.new do |instance|
-    
     The instance.func do
-      is :DUMMY1
+      is :f1
     end
     
     The instance.func2 do
-      is :DUMMY2
+      is :f2
     end
     
     CATCH NoMethodError do
       instance.not_want
     end
-
   end
-
 end
   
 Declare.report

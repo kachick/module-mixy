@@ -8,17 +8,20 @@ class Module
 
     private
 
-    # @param [Module] base_mod
+    # @param [Module] feature_mod
     # @param [Hash] aliases - original => aliased
     # @return self
-    def mixy(base_mod, aliases={})
-      specific_mod = base_mod.dup
+    def mixy(feature_mod, aliases={})
+      specific_mod = feature_mod.dup
+
+      all_methods_for = ->mod{
+        mod.instance_methods(true) | mod.private_instance_methods(true)
+      }
+
       specific_mod.module_eval do |mod|
-        all_methods  = instance_methods(true)  | private_instance_methods(true)
-        own_methods  = instance_methods(false) | private_instance_methods(false)
-        will_aliases = aliases.keys
-        
-        undef_method(*(all_methods - (own_methods | will_aliases)))
+        wants = instance_methods(false) | private_instance_methods(false)
+        ignores = all_methods_for.call(specific_mod) - (wants | aliases.keys)
+        undef_method(*ignores)
         
         aliases.each_pair do |original, aliased|
           alias_method aliased, original
@@ -26,12 +29,13 @@ class Module
         end
       end
       
-      conflicts = instance_methods & specific_mod.instance_methods
+      conflicts = all_methods_for.call(self) & all_methods_for.call(specific_mod)
       unless conflicts.empty?
         raise ConflictError, "[#{conflicts.join(', ')}] conflicts"
       end
       
       include specific_mod
+      self
     end
 
   end

@@ -69,6 +69,6 @@ License
 --------
 
 The MIT X11 License  
-Copyright (C) 2012 Kenichi Kamiya  
+Copyright (c) 2012 Kenichi Kamiya  
 See the file LICENSE for further details.
 

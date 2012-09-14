@@ -8,7 +8,7 @@ module-mixy.gemspec
 
 lib/module/mixy.rb
 
-declare/declare_example.rb
+declare/declare_basic.rb
 
 example/README.rb
 example/mix.rb
