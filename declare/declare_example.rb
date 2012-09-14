@@ -5,7 +5,14 @@ require 'declare'
 
 Declare do
 
-  base_mod_1 = Module.new do    
+  upper_mod = Module.new do
+    def not_want
+    end
+  end
+
+  base_mod_1 = Module.new do
+    include upper_mod
+
     def func
       :DUMMY1
     end
@@ -26,7 +33,7 @@ Declare do
 
     CATCH Module::Mixy::ConflictError do
       kls.module_eval do
-        mixy base_mod_2
+       mixy base_mod_2
       end
     end
   end
@@ -54,6 +61,11 @@ Declare do
       The instance.func2 do
         is :DUMMY2
       end
+
+      CATCH NoMethodError do
+        instance.not_want
+      end
+
     end
 
   end

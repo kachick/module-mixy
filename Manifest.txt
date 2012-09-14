@@ -1,8 +1,13 @@
-README.rdoc
+README.md
 LICENSE
-History.rdoc
+History.md
 Manifest.txt
 Rakefile
+Gemfile
+module-mixy.gemspec
+
 lib/module/mixy.rb
+
+declare/declare_example.rb
+
 example/basic.rb
-dspec/from_example.rb
