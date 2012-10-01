@@ -1,8 +1,10 @@
 #!/usr/bin/env rake
 require 'bundler/gem_tasks'
 
-task default: [:declare]
+require 'rake/testtask'
 
-task :declare do
-  require_relative 'declare/declare_basic'
+task default: [:test]
+
+Rake::TestTask.new do |tt|
+  tt.verbose = true
 end

@@ -34,6 +34,7 @@ module Bar
 end
 
 class FooBar
+  extend Module::Mixy
   mixy Foo, :common => :foo_common
   mixy Bar, :common => :bar_common
 end
@@ -42,6 +43,12 @@ foobar = FooBar.new
 p foobar.methods.grep(/common/) #=> [:bar_common, :foo_common]
 p foobar.foo_common             #=> "FOO :)"
 p foobar.bar_common             #=> "bar :("
+```
+
+### Anywhere
+
+```ruby
+require 'module/mixy/core_ext'
 ```
 
 Requirements
@@ -70,5 +77,5 @@ License
 
 The MIT X11 License  
 Copyright (c) 2012 Kenichi Kamiya  
-See the file LICENSE for further details.
+See MIT-LICENSE for further details.
 

@@ -1,4 +1,4 @@
-# Copyright (C) 2012 Kenichi Kamiya
+# Copyright (c) 2012 Kenichi Kamiya
 
 class Module
 
@@ -10,7 +10,7 @@ class Module
 
     # @param [Module] feature_mod
     # @param [Hash] aliases - original => aliased
-    # @return self
+    # @return [self]
     def mixy(feature_mod, aliases={})
       specific_mod = feature_mod.dup
 
@@ -39,7 +39,5 @@ class Module
     end
 
   end
-
-  include Mixy
 
 end

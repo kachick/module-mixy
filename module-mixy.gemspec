@@ -7,10 +7,10 @@ Gem::Specification.new do |gem|
 
   gem.files         = `git ls-files`.split($\)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  gem.test_files    = gem.files.grep(%r{^(test|spec|features|declare)/})
+  gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = 'module-mixy'
   gem.require_paths = ['lib']
-  gem.version       = '0.0.2'
+  gem.version       = '0.0.3'
 
   gem.required_ruby_version = '>= 1.9.2'
 

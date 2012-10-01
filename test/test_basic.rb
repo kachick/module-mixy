@@ -1,8 +1,5 @@
-$VERBOSE = true
-
+require_relative 'helper'
 require_relative '../lib/module/mixy'
-require 'declare'
-
 
 upper_mod = Module.new do
   def not_want
@@ -38,7 +35,9 @@ base_mod_3 = Module.new do
 end
 
 
-klass = Class.new
+klass = Class.new do
+  extend Module::Mixy
+end
 
 The klass.dup do |kls|
   ret = nil
@@ -93,5 +92,3 @@ The klass.dup do |kls|
     end
   end
 end
-  
-Declare.report
