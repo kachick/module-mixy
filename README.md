@@ -1,8 +1,6 @@
 module-mixy
 ===========
 
-[![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
-
 Description
 -----------
 
@@ -62,6 +60,11 @@ Install
 ```bash
 $ gem install module-mixy
 ```
+
+Build Status
+------------
+
+[![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
 
 Link
 ----
