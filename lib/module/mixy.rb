@@ -22,8 +22,10 @@ class Module
       specific_module = specific_module_from feature_module, aliases
       
       conflicts = methods_from(self) & methods_from(specific_module)
-      unless conflicts.empty?
-        raise ConflictError, "[#{conflicts.join(', ')}] conflicts"
+      conflicts.each do |conflict|
+        raise ConflictError,
+             "#{conflict} is a conflict name - all coflicts: [#{conflicts.join(', ')}]",
+              conflict.to_s # setting NameError#name
       end
       
       include specific_module
