@@ -7,21 +7,35 @@ class Module
 
     class ConflictError < NameError; end
 
+    module_function
+
+    def methods_from(mod)
+      mod.instance_methods(true) | mod.private_instance_methods(true)
+    end
+
     private
 
-    # @param [Module] feature_mod
+    # @param [Module] feature_module
     # @param [Hash] aliases - original => aliased
     # @return [self]
-    def mixy(feature_mod, aliases={})
-      specific_mod = feature_mod.dup
+    def mixy(feature_module, aliases={})
+      specific_module = specific_module_from feature_module, aliases
+      
+      conflicts = methods_from(self) & methods_from(specific_module)
+      unless conflicts.empty?
+        raise ConflictError, "[#{conflicts.join(', ')}] conflicts"
+      end
+      
+      include specific_module
+      self
+    end
 
-      all_methods_for = ->mod{
-        mod.instance_methods(true) | mod.private_instance_methods(true)
-      }
+    def specific_module_from(feature_module, aliases)
+      specific_module = feature_module.dup
 
-      specific_mod.module_eval do |mod|
-        wants = instance_methods(false) | private_instance_methods(false)
-        ignores = all_methods_for.call(specific_mod) - (wants | aliases.keys)
+      specific_module.module_eval do |mod|
+        features = instance_methods(false) | private_instance_methods(false)
+        ignores = Mixy.methods_from(specific_module) - (features | aliases.keys)
         undef_method(*ignores)
         
         aliases.each_pair do |original, aliased|
@@ -29,14 +43,8 @@ class Module
           remove_method original
         end
       end
-      
-      conflicts = all_methods_for.call(self) & all_methods_for.call(specific_mod)
-      unless conflicts.empty?
-        raise ConflictError, "[#{conflicts.join(', ')}] conflicts"
-      end
-      
-      include specific_mod
-      self
+
+      specific_module
     end
 
   end
