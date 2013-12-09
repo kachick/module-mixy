@@ -17,6 +17,7 @@ module Bar
 end
 
 class FooBar
+  extend Module::Mixy
   mixy Foo, :common => :foo_common
   mixy Bar, :common => :bar_common
 end

@@ -15,6 +15,7 @@ module Japanese
 end
 
 class JapaneseAmerican
+  extend Module::Mixy
   #mixy American
   #mixy Japanese  #=> [address] conflicts (Module::ConflictError)
 
