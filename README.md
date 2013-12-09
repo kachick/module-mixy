@@ -1,6 +1,9 @@
 module-mixy
 ===========
 
+[![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
+[![Gem Version](https://badge.fury.io/rb/module-mixy.png)](http://badge.fury.io/rb/module-mixy)
+
 Description
 -----------
 
@@ -52,7 +55,7 @@ require 'module/mixy/core_ext'
 Requirements
 -------------
 
-* Ruby - [1.9.2 or later](http://travis-ci.org/#!/kachick/module-mixy)
+* [Ruby 1.9.3 or later](http://travis-ci.org/#!/kachick/module-mixy)
 
 Install
 -------
@@ -61,14 +64,10 @@ Install
 $ gem install module-mixy
 ```
 
-Build Status
-------------
-
-[![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
-
 Link
 ----
 
+* [Home](http://kachick.github.com/module-mixy)
 * [code](https://github.com/kachick/module-mixy)
 * [API](http://kachick.github.com/module-mixy/yard/frames.html)
 * [issues](https://github.com/kachick/module-mixy/issues)
