@@ -1,13 +1,10 @@
 module-mixy
 ===========
 
+`Module.mixy` is an imitation of `Module.mix`.
+
 [![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
 [![Gem Version](https://badge.fury.io/rb/module-mixy.png)](http://badge.fury.io/rb/module-mixy)
-
-Description
------------
-
-Module.mixy is not Module.mix :)
 
 Features
 --------
@@ -46,7 +43,7 @@ p foobar.foo_common             #=> "FOO :)"
 p foobar.bar_common             #=> "bar :("
 ```
 
-### Anywhere
+### Be anywhere
 
 ```ruby
 require 'module/mixy/core_ext'
@@ -80,4 +77,3 @@ License
 The MIT X11 License  
 Copyright (c) 2012 Kenichi Kamiya  
 See MIT-LICENSE for further details.
-

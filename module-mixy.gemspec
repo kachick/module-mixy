@@ -4,7 +4,7 @@ Gem::Specification.new do |gem|
   # specific
 
   gem.name          = 'module-mixy'
-  gem.description   = %q{Module.mixy is not Module.mix :)}
+  gem.description   = %q{Module.mixy is an imitation of Module.mix.}
   gem.summary       = gem.description.dup
   gem.license       = 'MIT'
   gem.version       = '0.0.3'
