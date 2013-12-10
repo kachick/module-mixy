@@ -7,7 +7,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Module.mixy is an imitation of Module.mix.}
   gem.summary       = gem.description.dup
   gem.license       = 'MIT'
-  gem.version       = '0.0.3'
+  gem.version       = '0.0.4'
 
   gem.required_ruby_version = '>= 1.9.3'
   gem.add_development_dependency 'rspec', '>= 2.14.1', '< 3'
