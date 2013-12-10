@@ -7,16 +7,6 @@ class Module
 
     class ConflictError < NameError; end
 
-    module_function
-
-    # @param mod [Module]
-    # @return [Array<Symbol>]
-    def methods_from(mod)
-      mod.instance_methods(true) | mod.private_instance_methods(true)
-    end
-
-    private
-
     # @param feature_module [Module]
     # @param aliases [Hash] original<Symbol> => aliased<Symbol>
     # @return [self]
@@ -29,6 +19,16 @@ class Module
       include specific_module
       self
     end
+
+    module_function
+
+    # @param mod [Module]
+    # @return [Array<Symbol>]
+    def methods_from(mod)
+      mod.instance_methods(true) | mod.private_instance_methods(true)
+    end
+
+    private
 
     # @return [Module]
     def specific_module_from(feature_module, aliases)
