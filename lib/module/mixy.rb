@@ -8,7 +8,7 @@ class Module
     class ConflictError < NameError; end
 
     # @param feature_module [Module]
-    # @param aliases [Hash] original<Symbol> => aliased<Symbol,nil,false>
+    # @param aliases [Hash] origin<Symbol> => aliased<Symbol,nil,false>
     # @return [self]
     # if passes `aliases`, defines the renamed methods.
     # if aliases are not given, behaves as `include` with preventing to conflict.
@@ -40,13 +40,13 @@ class Module
         ignores = Mixy.methods_from(specific_module) - (keep_features | features | aliases.keys)
         undef_method(*ignores)
 
-        aliases.each_pair do |original, aliased|
-          alias_method aliased, original if aliased.instance_of?(Symbol)
+        aliases.each_pair do |origin, aliased|
+          alias_method aliased, origin if aliased.instance_of?(Symbol)
 
-          if keep_features.include? original
-            remove_method original
+          if keep_features.include? origin
+            remove_method origin
           else
-            undef_method original
+            undef_method origin
           end
         end
       end
