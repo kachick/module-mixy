@@ -33,15 +33,21 @@ class Module
     # @return [Module]
     def specific_module_from(feature_module, aliases)
       specific_module = feature_module.dup
+      keep_features = methods_from self
 
       specific_module.module_eval do
         features = instance_methods(false) | private_instance_methods(false)
-        ignores = Mixy.methods_from(specific_module) - (features | aliases.keys)
+        ignores = Mixy.methods_from(specific_module) - (keep_features | features | aliases.keys)
         undef_method(*ignores)
 
         aliases.each_pair do |original, aliased|
           alias_method aliased, original if aliased.instance_of?(Symbol)
-          remove_method original
+
+          if keep_features.include? original
+            remove_method original
+          else
+            undef_method original
+          end
         end
       end
 
