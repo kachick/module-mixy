@@ -50,6 +50,14 @@ describe Module::Mixy do
           expect(@class.new.public_func_aliased).to eq(:ret_public_func_on_has_public)
           expect(@class.new.public_func).to eq(:ret_public_func_on_has_public_and_private)
         end
+
+        context "when the aliased name is a falsy value" do
+          it "ignores origin name and does not define the aliased name" do
+            before = @class.public_instance_methods
+            @class.mixy HasPublic, :public_func => nil
+            expect(@class.public_instance_methods).to eq(before)
+          end
+        end
       end
 
       context "the method visibility is private" do

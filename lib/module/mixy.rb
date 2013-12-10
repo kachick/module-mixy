@@ -8,7 +8,7 @@ class Module
     class ConflictError < NameError; end
 
     # @param feature_module [Module]
-    # @param aliases [Hash] original<Symbol> => aliased<Symbol>
+    # @param aliases [Hash] original<Symbol> => aliased<Symbol,nil,false>
     # @return [self]
     # if passes `aliases`, defines the renamed methods.
     # if aliases are not given, behaves as `include` with preventing to conflict.
@@ -40,7 +40,7 @@ class Module
         undef_method(*ignores)
 
         aliases.each_pair do |original, aliased|
-          alias_method aliased, original
+          alias_method aliased, original if aliased.instance_of?(Symbol)
           remove_method original
         end
       end
