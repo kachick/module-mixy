@@ -41,7 +41,7 @@ class Module
         undef_method(*ignores)
 
         aliases.each_pair do |origin, aliased|
-          alias_method aliased, origin if aliased.instance_of?(Symbol)
+          alias_method aliased, origin if aliased
 
           if keep_features.include? origin
             remove_method origin
