@@ -2,8 +2,12 @@
 
 module Module::Mixy::RspecHelpers
   Ancestor = Module.new do
-    def not_want
-      :not_want_on_super
+    def public_func
+      :ret_public_func_on_ancestor
+    end
+
+    def not_want_public_func
+      :ret_not_want_public_func_on_ancestor
     end
   end
 

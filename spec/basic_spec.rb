@@ -29,7 +29,7 @@ describe Module::Mixy do
     it "does not extend with ancestors of the module" do
       @class.mixy HasPublicAndPrivate
       instance = @class.new
-      expect { instance.__send__(:not_want) }.to raise_error(NoMethodError)
+      expect { instance.__send__(:not_want_public_func) }.to raise_error(NoMethodError)
     end
 
     context "when the module has same method-name" do
