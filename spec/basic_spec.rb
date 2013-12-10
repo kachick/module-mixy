@@ -38,10 +38,12 @@ describe Module::Mixy do
       end
 
       context "the method visibility is public" do
-        it "raises a ConflictError" do
+        it "raises a ConflictError and it is set with #name" do
           expect do
             @class.mixy HasPublic
-          end.to raise_error(Module::Mixy::ConflictError)
+          end.to(raise_error(Module::Mixy::ConflictError) do |err|
+            expect(err.name).to eq(:public_func)
+          end)
         end
 
         it "extends self with aliased name" do
@@ -61,10 +63,12 @@ describe Module::Mixy do
       end
 
       context "the method visibility is private" do
-        it "raises a ConflictError" do
+        it "raises a ConflictError and it is set with #name" do
           expect do
             @class.mixy HasPrivate
-          end.to raise_error(Module::Mixy::ConflictError)
+          end.to(raise_error(Module::Mixy::ConflictError) do |err|
+            expect(err.name).to eq(:private_func)
+          end)
         end
 
         it "extends self with aliased name" do

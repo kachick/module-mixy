@@ -58,9 +58,9 @@ class Module
     def check_conflicts(specific_module)
       conflicts = methods_from(self) & methods_from(specific_module)
       conflicts.each do |conflict|
-        raise ConflictError,
-             "#{conflict} is a conflict name - all coflicts: [#{conflicts.join(', ')}]",
-              conflict.to_s # setting NameError#name
+        err = ConflictError.new \
+              "#{conflict} is a conflict name - all coflicts: [#{conflicts.join(', ')}]", conflict
+        raise err
       end
 
       nil
