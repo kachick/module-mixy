@@ -20,6 +20,8 @@ class Module
     # @param feature_module [Module]
     # @param aliases [Hash] original<Symbol> => aliased<Symbol>
     # @return [self]
+    # if passes `aliases`, defines the renamed methods.
+    # if aliases are not given, behaves as `include` with preventing to conflict.
     def mixy(feature_module, aliases={})
       specific_module = specific_module_from feature_module, aliases
       check_conflicts specific_module
@@ -36,7 +38,7 @@ class Module
         features = instance_methods(false) | private_instance_methods(false)
         ignores = Mixy.methods_from(specific_module) - (features | aliases.keys)
         undef_method(*ignores)
-        
+
         aliases.each_pair do |original, aliased|
           alias_method aliased, original
           remove_method original
