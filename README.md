@@ -5,6 +5,7 @@ module-mixy
 
 [![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
 [![Gem Version](https://badge.fury.io/rb/module-mixy.png)](http://badge.fury.io/rb/module-mixy)
+[![Dependency Status](https://gemnasium.com/kachick/module-mixy.svg)](https://gemnasium.com/kachick/module-mixy)
 
 Features
 --------
@@ -66,7 +67,7 @@ Link
 
 * [Home](http://kachick.github.com/module-mixy)
 * [code](https://github.com/kachick/module-mixy)
-* [API](http://kachick.github.com/module-mixy/yard/frames.html)
+* [API](http://www.rubydoc.info/github/kachick/module-mixy)
 * [issues](https://github.com/kachick/module-mixy/issues)
 * [CI](http://travis-ci.org/#!/kachick/module-mixy)
 * [gem](https://rubygems.org/gems/module-mixy)

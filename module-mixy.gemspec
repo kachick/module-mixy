@@ -10,13 +10,14 @@ Gem::Specification.new do |gem|
   gem.version       = '0.0.4.1'
 
   gem.required_ruby_version = '>= 1.9.3'
-  gem.add_development_dependency 'rspec', '>= 2.14.1', '< 3'
-  gem.add_development_dependency 'yard', '>= 0.8.7.3', '< 0.9'
-  gem.add_development_dependency 'rake', '>= 10', '< 20'
-  gem.add_development_dependency 'bundler', '>= 1.3.5', '< 2'
+  
+  gem.add_development_dependency 'rspec', '>= 3.3', '< 4'
+  gem.add_development_dependency 'yard', '>= 0.8.7.6', '< 0.9'
+  gem.add_development_dependency 'rake', '>= 10.4', '< 20'
+  gem.add_development_dependency 'bundler', '>= 1.10', '< 2'
 
   if RUBY_ENGINE == 'rbx'
-    gem.add_dependency 'rubysl', '~> 2.0'
+    gem.add_dependency 'rubysl', '~> 2.1'
   end
 
   # common
@@ -29,4 +30,3 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 end
-
