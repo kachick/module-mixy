@@ -53,7 +53,7 @@ require 'module/mixy/core_ext'
 Requirements
 -------------
 
-* [Ruby 1.9.3 or later](http://travis-ci.org/#!/kachick/module-mixy)
+* [Ruby 2.5 or later](http://travis-ci.org/#!/kachick/module-mixy)
 
 Install
 -------
