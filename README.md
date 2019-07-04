@@ -5,7 +5,6 @@ module-mixy
 
 [![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
 [![Gem Version](https://badge.fury.io/rb/module-mixy.png)](http://badge.fury.io/rb/module-mixy)
-[![Dependency Status](https://gemnasium.com/kachick/module-mixy.svg)](https://gemnasium.com/kachick/module-mixy)
 
 Features
 --------
