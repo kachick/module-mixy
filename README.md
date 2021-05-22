@@ -1,10 +1,12 @@
 module-mixy
 ===========
 
-`Module.mixy` is an imitation of `Module.mix`.
+* ***This repository is archived***
+* ***No longer maintained***
+* ***All versions have been yanked from https://rubygems.org for releasing valuable namespace for others***
 
-[![Build Status](https://secure.travis-ci.org/kachick/module-mixy.png)](http://travis-ci.org/kachick/module-mixy)
-[![Gem Version](https://badge.fury.io/rb/module-mixy.png)](http://badge.fury.io/rb/module-mixy)
+
+`Module.mixy` is an imitation of `Module.mix`.
 
 Features
 --------
@@ -53,23 +55,6 @@ Requirements
 -------------
 
 * [Ruby 2.5 or later](http://travis-ci.org/#!/kachick/module-mixy)
-
-Install
--------
-
-```bash
-$ gem install module-mixy
-```
-
-Link
-----
-
-* [Home](http://kachick.github.com/module-mixy)
-* [code](https://github.com/kachick/module-mixy)
-* [API](http://www.rubydoc.info/github/kachick/module-mixy)
-* [issues](https://github.com/kachick/module-mixy/issues)
-* [CI](http://travis-ci.org/#!/kachick/module-mixy)
-* [gem](https://rubygems.org/gems/module-mixy)
 
 License
 --------
